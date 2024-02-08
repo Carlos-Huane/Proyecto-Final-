@@ -1,11 +1,11 @@
 package Vista;
 import javax.swing.JOptionPane;
 import Vista.Admin.Menu_Admin;
-import Vista.Empleado.Menu_Empleado;
+import Vista.Empleado.Empleado;
 public class Main {
     public static void main (String[] args){
         Menu_Admin menu_admin = new Menu_Admin();
-        Menu_Empleado menu_empleado= new Menu_Empleado();
+        Empleado menu_empleado= new Vista.Empleado.Empleado();
         int opcion;
         String menu = """
                 ############################
