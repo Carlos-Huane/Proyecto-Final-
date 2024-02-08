@@ -11,14 +11,13 @@ public class Main {
                 ############################
                 1. INICIAR COMO ADMINISTRADOR
                 2. INICIAR COMO EMPLEADO
-                3. LISTA DE EMPLEADOS
-                4. Salir
+                3. Salir
         """;
         do {
         String input = JOptionPane.showInputDialog(menu);
         
         if (input == null) {
-            opcion = 4;     // Si se presiona "Cancelar", establece la opción a 5
+            opcion = 3;     // Si se presiona "Cancelar", establece la opción a 5
         } else {
             opcion = Integer.parseInt(input);
         }
@@ -62,6 +61,9 @@ public class Main {
                         // Solicitar y capturar dirección
                         String direccion = JOptionPane.showInputDialog(null, "Ingrese su dirección:");
 
+                        // Solicitar y capturar tipo de empleo
+                        String tipo_empleo = JOptionPane.showInputDialog(null, "Ingrese el tipo de empleo");
+                
                         // Solicitar y capturar fecha de ingreso
                         String fechaIngreso = "6/2/2024";
 
@@ -72,7 +74,8 @@ public class Main {
                                          "Edad: " + edad + "\n" +
                                          "DNI: " + dni + "\n" +
                                          "Dirección: " + direccion + "\n" +
-                                         "Fecha de ingreso: " + fechaIngreso;
+                                         "Fecha de ingreso: " + fechaIngreso + "\n" +
+                                         "Tipo de empleo: " + tipo_empleo;
 
                         JOptionPane.showMessageDialog(null, mensaje);
                     }
@@ -117,6 +120,6 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Coloque un número entre 1-4");
             }
         }
-        }while (opcion!=4);
+        }while (opcion!=3);
     }
 }
