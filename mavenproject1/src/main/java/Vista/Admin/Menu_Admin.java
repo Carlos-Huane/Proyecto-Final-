@@ -4,7 +4,7 @@ import Modelo.Administrador;
 import java.util.Scanner;
 import Modelo.Mozo;
 import javax.swing.JOptionPane;
-
+import Controlador.ListaEmpleados;
 public class Menu_Admin {
     public void mostrar_menu_admin(){
         
@@ -90,6 +90,9 @@ public class Menu_Admin {
                 ############################
                 """;
                 String input_3 = JOptionPane.showInputDialog(menu_3);
+                ListaEmpleados.verEmpleadosMozos();
+                ListaEmpleados.verEmpleadosCocineros();
+                System.out.println("-----------------------");
             }
             case 4 -> {
                 break;

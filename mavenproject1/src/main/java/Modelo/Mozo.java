@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author roman
- */
 public class Mozo {
     private String nombre, apellido, direccion, fechaIngreso, fechaSalida, tipoEmpleo;
     private int edad; 
@@ -20,14 +12,21 @@ public class Mozo {
         this.direccion = direccion;
         //this.fechaIngreso = fechaIngreso;
         //this.fechaSalida = fechaSalida;
-        //this.tipoEmpleo = tipoEmpleo;
+        this.tipoEmpleo = tipoTrabajador==1?"Mozo": tipoTrabajador==2?"Cocinero":"Administrador";
         this.edad = edad;
         this.dni = dni;
         this.tipoTrabajador = tipoTrabajador;
     }
-    
-    
-    
+
+    public String getNombre()       {return this.nombre;}
+    public String getApellido()     {return this.apellido;}
+    public String getDireccion()    {return this.direccion;}
+    public String getFechaIngreso() {return this.fechaIngreso;}
+    public String getFechaSalida()  {return this.fechaSalida;}
+    public String getTipoEmpleo()   {return this.tipoEmpleo;}
+    public String getDni()          {return this.dni;}
+    public int getEdad()            {return this.edad;}
+    public int getTipoTrabajador()  {return this.tipoTrabajador;}
     
 }
 
