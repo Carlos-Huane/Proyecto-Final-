@@ -1,7 +1,7 @@
 package Vista.Empleado;
 import javax.swing.JOptionPane;
-import Vista.Empleado.Menu_Mozo;
-import Vista.Empleado.Menu_Cocinero;
+import Vista.Empleado.Mozo.Menu_Mozo;
+import Vista.Empleado.Cocinero.Menu_Cocinero;
 
 public class Empleado {
     

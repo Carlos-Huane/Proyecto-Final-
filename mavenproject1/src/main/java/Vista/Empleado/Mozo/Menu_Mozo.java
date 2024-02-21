@@ -1,7 +1,9 @@
-package Vista.Empleado;
+package Vista.Empleado.Mozo;
 import javax.swing.JOptionPane;
+import Vista.Empleado.Mozo.Menu_Mozo_Mesa;
 public class Menu_Mozo {
     public void mostrar_menu_mozo() {
+        Menu_Mozo_Mesa menu_mozo_mesa = new Menu_Mozo_Mesa();
         int opcion_m;
         String menu_m = """
                 1. Ver la carta
@@ -19,13 +21,14 @@ public class Menu_Mozo {
             }
             switch(opcion_m){
                 case 1->{
-                    System.out.println("ingrese mozo 1");
+                    System.out.println("1. Ver la Carta");
                 }
                 case 2->{
-                    System.out.println("Ingrese cocinero 2");
+                    //System.out.println("2. Ingresar la mesa");
+                    menu_mozo_mesa.mostrar_menu_mozo_mesa();
                 }
                 case 3 ->{
-                    System.out.println("Ingreso extra");
+                    System.out.println("3. Extra: Eliminar pedido");
                 }
                 case 4 -> {
                     break;

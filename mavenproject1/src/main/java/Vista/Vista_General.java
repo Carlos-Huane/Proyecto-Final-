@@ -15,6 +15,7 @@ public class Vista_General {
                 2. INICIAR COMO EMPLEADO
                 3. Salir
         """;
+        
         do {
         String input = JOptionPane.showInputDialog(menu);
         
