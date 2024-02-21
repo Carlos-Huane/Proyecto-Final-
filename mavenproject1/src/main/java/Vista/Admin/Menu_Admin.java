@@ -1,10 +1,14 @@
 package Vista.Admin;
+import Modelo.Cocinero;
+import Modelo.Administrador;
 import java.util.Scanner;
-
+import Modelo.Mozo;
 import javax.swing.JOptionPane;
 
 public class Menu_Admin {
     public void mostrar_menu_admin(){
+        
+        Administrador admin=new Administrador();
         
         int opcion_admin;
         String menu_admin = """
@@ -46,10 +50,14 @@ public class Menu_Admin {
 
                 // Solicitar y capturar tipo de empleo
                 String tipo_empleo = JOptionPane.showInputDialog(null, "Ingrese el tipo de empleo");
+                tipo_empleo=tipo_empleo.toUpperCase();
                 
                 // Solicitar y capturar fecha de ingreso
                 String fechaIngreso = "6/2/2024";
 
+                // aquí estamos llamando al método establecido en la clase Administrador. Para ello, se instanció previamente la clase.
+                admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
+                
                 // Mostrar los datos ingresados
                 String mensaje = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
                                  "Nombre: " + nombre + "\n" +
