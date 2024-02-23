@@ -64,9 +64,7 @@ public class GestorMozo {
 
         // Construir el menú con un formato mejorado
         String menu = menuBuilder.toString();
-        System.out.println(menu);
-
-
+        
         return menu;
     }
 }

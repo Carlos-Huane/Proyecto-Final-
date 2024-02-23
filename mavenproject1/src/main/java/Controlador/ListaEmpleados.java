@@ -60,6 +60,7 @@ public class ListaEmpleados {
         String menuHeader = menuBuilder.toString();
         String menuMozos = gestorM.verEmpleadosMozos();
         String menuCocineros = gestorC.verEmpleadosCocineros();
+        System.out.print(menuHeader+menuMozos+menuCocineros);
         JOptionPane.showMessageDialog(null, menuHeader+menuMozos+menuCocineros);
        
         
