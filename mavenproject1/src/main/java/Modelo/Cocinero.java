@@ -10,7 +10,7 @@ public class Cocinero {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
-        //this.fechaIngreso = fechaIngreso;
+        this.fechaIngreso = this.nombre=="Toji" | this.nombre=="Goku"?"20/04/2019":"Recien entro";
         //this.fechaSalida = fechaSalida;
         this.tipoEmpleo = tipoTrabajador==1?"Mozo": tipoTrabajador==2?"Cocinero":"Administrador";
         this.edad = edad;
@@ -28,21 +28,8 @@ public class Cocinero {
     public int getTipoTrabajador()  {return tipoTrabajador;}
     public int getEdad()            {return edad;}
     
-    public void agregarComida(){
-        //agregar
+    public void setFechaIngreso(String fechaIngreso){
+        this.fechaIngreso = fechaIngreso;
     }
-  
-    public void elimnarComida(){
-        //agregar
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 

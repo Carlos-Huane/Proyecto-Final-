@@ -1,14 +1,11 @@
 package Vista.Admin;
-import Modelo.Cocinero;
-import Modelo.Administrador;
-import java.util.Scanner;
-import Modelo.Mozo;
 import javax.swing.JOptionPane;
 import Controlador.ListaEmpleados;
+
 public class Menu_Admin {
     public void mostrar_menu_admin(){
-        
-        Administrador admin=new Administrador();
+       
+        ListaEmpleados listaEmpleados = new ListaEmpleados();
         
         int opcion_admin;
         String menu_admin = """
@@ -56,8 +53,8 @@ public class Menu_Admin {
                 String fechaIngreso = "6/2/2024";
 
                 // aquí estamos llamando al método establecido en la clase Administrador. Para ello, se instanció previamente la clase.
-                admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
-                
+                //admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
+                listaEmpleados.agregarEmpleado(tipo_empleo, nombre, apellido, direccion, edad, dni);
                 // Mostrar los datos ingresados
                 String mensaje = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
                                  "Nombre: " + nombre + "\n" +
@@ -81,17 +78,22 @@ public class Menu_Admin {
                 
                 // Solicitar y capturar DNI
                 String dni = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
+                listaEmpleados.eliminarTrabajador(dni);
                 JOptionPane.showMessageDialog(null, dni+" eliminado del sistema");
             }
             case 3->{
-                String menu_3 = """
-                ############################
-                NOMBRE, EDAD, DNI, DIRECCIÓN, FECHA DE INGRESO. FECHA DE DESPIDO (cuando elimino un trabajador) 
-                ############################
-                """;
-                String input_3 = JOptionPane.showInputDialog(menu_3);
-                ListaEmpleados.verEmpleadosMozos();
-                ListaEmpleados.verEmpleadosCocineros();
+                /*
+                String menu_3 = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
+                                 "Nombre: " + nombre + "\n" +
+                                 "Apellido: " + apellido + "\n" +
+                                 "Edad: " + edad + "\n" +
+                                 "DNI: " + dni + "\n" +
+                                 "Dirección: " + direccion + "\n" +
+                                 "Fecha de ingreso: " + fechaIngreso + "\n" +
+                                 "Tipo de empleo: " + tipo_empleo;
+                */
+                
+                listaEmpleados.mostrarEmpleados();
                 System.out.println("-----------------------");
             }
             case 4 -> {
