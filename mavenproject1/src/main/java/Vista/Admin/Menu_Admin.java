@@ -68,31 +68,11 @@ public class Menu_Admin {
                 JOptionPane.showMessageDialog(null, mensaje);
             }
             case 2->{
-                
-                /*String menu_2 = """
-                ############################
-                SE TIENE QUE INGRESAR EL DNI 
-                SE AGREGA LA FECHA DE DESPIDO           
-                """;
-                String input_2 = JOptionPane.showInputDialog(menu_2);*/
-                
-                // Solicitar y capturar DNI
                 String dni = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
-                listaEmpleados.eliminarTrabajador(dni);
+                listaEmpleados.eliminarTrabajador(dni); //si dni no está en la lista de empleados
                 JOptionPane.showMessageDialog(null, dni+" eliminado del sistema");
             }
             case 3->{
-                /*
-                String menu_3 = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
-                                 "Nombre: " + nombre + "\n" +
-                                 "Apellido: " + apellido + "\n" +
-                                 "Edad: " + edad + "\n" +
-                                 "DNI: " + dni + "\n" +
-                                 "Dirección: " + direccion + "\n" +
-                                 "Fecha de ingreso: " + fechaIngreso + "\n" +
-                                 "Tipo de empleo: " + tipo_empleo;
-                */
-                
                 listaEmpleados.mostrarEmpleados();
                 System.out.println("-----------------------");
             }

@@ -1,8 +1,8 @@
 package Vista.Empleado.Mozo;
 import javax.swing.JOptionPane;
-
+import Controlador.ListaPedidos;
 public class Menu_Mozo_Mesa {
-    public void mostrar_menu_mozo_mesa(){
+    public void mostrar_menu_mozo_mesa(ListaPedidos listaPedidos){
         int opcion_m_mesa=0;                 //opcion menu mesa
         String menu_m_mesa = """
                 1. Regristar el pedido
@@ -17,6 +17,7 @@ public class Menu_Mozo_Mesa {
             } else {
                 opcion_m_mesa = Integer.parseInt(input_m_mesa);
             }
+            
             switch (opcion_m_mesa) {
                 case 1->{
                     int opcion_pedido = 0;
@@ -26,6 +27,8 @@ public class Menu_Mozo_Mesa {
                         opcion_pedido = 2;     // Si se presiona "Cancelar", establece la opción a 4
                         } else {
                             opcion_pedido = Integer.parseInt(input_m_mesa);
+                            System.out.println("partemos de nuevo-->"+input_pedido);
+                            listaPedidos.agregarPedido(input_pedido);
                         }
                         String menu_continuar_1 = """
                                                 ¿Desea ingresar otro pedido?
@@ -44,7 +47,7 @@ public class Menu_Mozo_Mesa {
                         while (opcion_pedido!=2);
                 }
                 case 2->{
-                    JOptionPane.showMessageDialog(null, "Imprimiento cuenta");
+                    listaPedidos.verPedidos();
                 }
                 case 3-> {
                     break;
@@ -53,6 +56,7 @@ public class Menu_Mozo_Mesa {
                     JOptionPane.showMessageDialog(null, "Coloque un número entre 1-3");
                 }
             }
+            
         } while(opcion_m_mesa !=3);   
     }
      

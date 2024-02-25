@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class ListaEmpleados {
     private GestorMozo gestorM = new GestorMozo(10);
     private GestorCocinero gestorC = new GestorCocinero(10);
+    
     public ListaEmpleados(){
         gestorM.agregarMozo(new Mozo("Carlos","Huane","Comas",1,"72180433",1));
         gestorM.agregarMozo(new Mozo("James","Piñas","SJL #15",15,"785642",1));
@@ -16,18 +17,13 @@ public class ListaEmpleados {
         gestorC.agregarCocinero(new Cocinero("Toji", "Fushiguro", "Av. España 310", 25, "10222323", 2));
         gestorC.agregarCocinero(new Cocinero("Goku", "Rex", "Av. DB", 35, "20123", 2));
     }
-    /*
-    public ListaEmpleados1(GestorMozo gestorMozo){
-        this.gestorM = gestorMozo;
-    }
-    */
+
     public void agregarEmpleado(String tipo_empleo, String nombre, String apellido, String direccion, int edad, String dni){
         switch(tipo_empleo){
                     case "MOZO"->{
                         Mozo mozo=new Mozo(nombre,apellido,direccion,edad,dni,1);                 
                         gestorM.agregarMozo(mozo);
                     }
-                    
                     case "COCINERO"->{
                         Cocinero cocinero=new Cocinero(nombre,apellido,direccion,edad,dni,2); 
                         gestorC.agregarCocinero(cocinero); 

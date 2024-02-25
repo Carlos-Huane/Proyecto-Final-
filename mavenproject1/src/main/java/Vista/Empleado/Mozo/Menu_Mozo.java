@@ -1,8 +1,10 @@
 package Vista.Empleado.Mozo;
 import javax.swing.JOptionPane;
 import Vista.Empleado.Mozo.Menu_Mozo_Mesa;
+import Controlador.ListaPedidos;
 public class Menu_Mozo {
-    public void mostrar_menu_mozo() {
+    public void mostrar_menu_mozo(ListaPedidos listaPedidos) {
+        
         Menu_Mozo_Mesa menu_mozo_mesa = new Menu_Mozo_Mesa();
         int opcion_m;
         String menu_m = """
@@ -18,14 +20,16 @@ public class Menu_Mozo {
                 opcion_m = 4;     // Si se presiona "Cancelar", establece la opción a 5
             } else {
                 opcion_m = Integer.parseInt(input_m);
+                listaPedidos.agregarPedido(opcion_m+"");
             }
             switch(opcion_m){
                 case 1->{
                     System.out.println("1. Ver la Carta");
+                    listaPedidos.verCarta();
                 }
                 case 2->{
                     //System.out.println("2. Ingresar la mesa");
-                    menu_mozo_mesa.mostrar_menu_mozo_mesa();
+                    menu_mozo_mesa.mostrar_menu_mozo_mesa(listaPedidos);
                 }
                 case 3 ->{
                     System.out.println("3. Extra: Eliminar pedido");
