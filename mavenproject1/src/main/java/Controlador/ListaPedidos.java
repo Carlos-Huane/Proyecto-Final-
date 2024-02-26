@@ -12,15 +12,8 @@ public class ListaPedidos {
     }
     public void verCarta(){ //está para modificar
             StringBuilder menuBuilder = new StringBuilder();
-            // Encabezado del menú
-            menuBuilder.append(String.format("%-20s", "Código"))
-                        .append(String.format("%-20s", "Nombre"))
-                        .append(String.format("%-20s", "Cantidad"))
-                        .append(String.format("%-20s", "Precio"))
-                        .append("\n");
-            String menuHeader = menuBuilder.toString();
-            String menuPedidos = gestorP.verPedidos();
-            JOptionPane.showMessageDialog(null, menuHeader+menuPedidos);
+            String menu = gestorP.verCarta();
+            JOptionPane.showMessageDialog(null, menu);
     }
     
     public void verPedidos(){
@@ -34,5 +27,8 @@ public class ListaPedidos {
             String menuHeader = menuBuilder.toString();
             String menuPedidos = gestorP.verPedidos();
             JOptionPane.showMessageDialog(null, menuHeader+menuPedidos);
+    }
+    public void eliminarPedido(String id){
+        gestorP.eliminarPedidos(id);
     }
 }

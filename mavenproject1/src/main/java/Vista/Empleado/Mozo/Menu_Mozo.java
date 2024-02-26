@@ -9,8 +9,8 @@ public class Menu_Mozo {
         int opcion_m;
         String menu_m = """
                 1. Ver la carta
-                2. Ingresar la mesa
-                3. Extra: Eliminar pedido
+                2. Pedido
+                3. Eliminar pedido
                 4. Salir
         """;
         do {
@@ -32,7 +32,9 @@ public class Menu_Mozo {
                     menu_mozo_mesa.mostrar_menu_mozo_mesa(listaPedidos);
                 }
                 case 3 ->{
-                    System.out.println("3. Extra: Eliminar pedido");
+                    String id = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
+                    listaPedidos.eliminarPedido(id);
+                    JOptionPane.showMessageDialog(null, " Pedido eliminado del sistema");
                 }
                 case 4 -> {
                     break;

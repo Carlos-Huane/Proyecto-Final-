@@ -27,8 +27,7 @@ public class Menu_Admin {
         }
          
         switch (opcion_admin) {
-            case 1->{
-        
+            case 1->{        
                 // Solicitar y capturar nombre
                 String nombre = JOptionPane.showInputDialog(null, "Ingrese su nombre:");
 
