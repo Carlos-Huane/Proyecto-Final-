@@ -8,13 +8,11 @@ public class GestorMozo {
     public GestorMozo(int cantidad) {
         mozos = new Mozo[cantidad];
         contador = 0;
-        /*
         for (int i=0; i<mozos.length; i++){
             if(mozos[i]!=null) {
                 contador++;
             }
         }
-        */
     }
     public void agregarMozo(Mozo mozo){
         if(contador<mozos.length) {
@@ -34,17 +32,7 @@ public class GestorMozo {
             }
         }
     }
-    /*
-    public void verEmpleadosMozos() {
-        for (int i = 0; i < mozos.length; i++){
-            if (mozos[i] != null) {
-                Mozo mozo = mozos[i];
-                //Dale un mejor formato a ver empleados mozos
-                System.out.println(mozo.getNombre() + " tipo empleo: " + mozo.getTipoEmpleo());
-            }
-        }
-    }
-    */
+    
     public String verEmpleadosMozos() {
         StringBuilder menuBuilder = new StringBuilder();
         
@@ -64,7 +52,6 @@ public class GestorMozo {
 
         // Construir el menú con un formato mejorado
         String menu = menuBuilder.toString();
-        
         return menu;
     }
 }

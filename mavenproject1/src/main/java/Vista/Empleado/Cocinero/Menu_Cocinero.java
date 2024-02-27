@@ -22,7 +22,6 @@ public class Menu_Cocinero {
             switch (opcion_c) {
                 case 1->{
                     listaPedidos.verPedidoClientes();
-                    //JOptionPane.showMessageDialog(null, "Mostrar Pedidos");
                 }
                 case 2->{
                     break;

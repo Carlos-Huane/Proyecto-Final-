@@ -1,7 +1,5 @@
 package Modelo;
 
-import javax.swing.JOptionPane;
-
 public class Pedido {
     private String id, nombrePedido;
     private double precio;
@@ -17,7 +15,6 @@ public class Pedido {
     public void setCantidad(int cantidad) { this.cantidad = cantidad;}
 
     public Pedido(String id){
-        System.out.println("estoy en gestor mozooo");
         switch(id){
             case "100"->{
                 this.id="100";

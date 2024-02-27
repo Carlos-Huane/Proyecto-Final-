@@ -3,7 +3,9 @@ import Modelo.GestorMozo;
 import Modelo.Mozo;
 import Modelo.GestorCocinero;
 import Modelo.Cocinero;
-import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;         
+import java.util.Date;                    
+import javax.swing.JOptionPane;             
 
 public class ListaEmpleados {
     private GestorMozo gestorM = new GestorMozo(10);
@@ -19,13 +21,22 @@ public class ListaEmpleados {
     }
 
     public void agregarEmpleado(String tipo_empleo, String nombre, String apellido, String direccion, int edad, String dni){
+    // Obtener la fecha actual
+    Date fechaActual = new Date();
+    // Definir el formato de fecha deseado
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    // Formatear la fecha actual en el formato deseado
+    String fechaFormateada = formato.format(fechaActual);
+    
         switch(tipo_empleo){
                     case "MOZO"->{
-                        Mozo mozo=new Mozo(nombre,apellido,direccion,edad,dni,1);                 
+                        Mozo mozo=new Mozo(nombre,apellido,direccion,edad,dni,1); 
+                        mozo.setFechaIngreso(fechaFormateada);
                         gestorM.agregarMozo(mozo);
                     }
                     case "COCINERO"->{
                         Cocinero cocinero=new Cocinero(nombre,apellido,direccion,edad,dni,2); 
+                        cocinero.setFechaIngreso(fechaFormateada);
                         gestorC.agregarCocinero(cocinero); 
                     }
                     default -> {System.out.println("No existe ese trabajador");}
@@ -58,8 +69,5 @@ public class ListaEmpleados {
         String menuCocineros = gestorC.verEmpleadosCocineros();
         System.out.print(menuHeader+menuMozos+menuCocineros);
         JOptionPane.showMessageDialog(null, menuHeader+menuMozos+menuCocineros);
-       
-        
     }
-        
 }

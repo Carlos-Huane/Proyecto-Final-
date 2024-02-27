@@ -1,14 +1,18 @@
 package Controlador;
 import Modelo.GestorPedido;
-import Modelo.Pedido;
 import javax.swing.JOptionPane;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ListaPedidos {
     private GestorPedido gestorP = new GestorPedido(10);
     private String[] pedidosCliente = new String[10];
     private int contadorCliente;
-    //public ListaPedidos(int n){
-        
-    //}
+    public ListaPedidos(){
+        gestorP.eliminarArchivosIniciales();
+    }
     public void agregarPedido(String id){
         gestorP.agregarPedido(id);
     }
@@ -40,21 +44,61 @@ public class ListaPedidos {
         contadorCliente=contadorCliente+1; //opcional luego miras k pasa cuando eliminas
     }
     public void imprimirCuenta(){
-        contadorCliente=contadorCliente+1;
-        String header = String.format("%-10s %s \n", "Cliente", contadorCliente);
-        String body = gestorP.verPedidos();
-        pedidosCliente[contadorCliente-1] = header+body+"\n";
-        gestorP.eliminarPedidoCliente(); //Resetea la lista de pedidos del cliente X 
+        if(gestorP.getContador() > 0) {
+            contadorCliente=contadorCliente+1;
+            String header = String.format("%-10s %s \n", "Cliente", contadorCliente);
+            String nav=String.format("%-20s%-20s%-20s%-20s \n", "Código","Nombre","Cantidad","Precio");
+            String body = gestorP.verPedidos();
+            pedidosCliente[contadorCliente-1] = header+nav+body+"\n";
+            
+            //Aquí debo guardar el texto dentro de un txt en la carpeta boleta
+      
+            String contenido = pedidosCliente[contadorCliente-1];
+
+            // Obtener la ruta del directorio "Boleta" dentro de "Source Package"
+            String rutaDirectorio = "src/Boleta";
+
+            // Crear el directorio si no existe
+            File directorio = new File(rutaDirectorio);
+            if (!directorio.exists()) {
+                directorio.mkdirs();
+            }
+
+            // Definir el nombre del archivo
+            String nombreArchivo = "cliente"+contadorCliente+".txt";
+
+            // Combinar la ruta del directorio con el nombre del archivo
+            String rutaArchivo = rutaDirectorio + "/" + nombreArchivo;
+
+            // Escribir el contenido en el archivo
+            try (FileWriter escritor = new FileWriter(rutaArchivo)) {
+                escritor.write(contenido);
+                System.out.println("Archivo guardado correctamente en: " + rutaArchivo);
+            } catch (IOException e) {
+                System.out.println("Error al escribir en el archivo: " + e.getMessage());
+            }
+            
+            //----------------------------------------------------------------------------------
+            gestorP.eliminarPedidoCliente(); //Resetea la lista de pedidos del cliente X 
+            JOptionPane.showMessageDialog(null, " Imprimiendo cuenta");
+        } else {
+            JOptionPane.showMessageDialog(null, " No hay pedidos del cliente");
+        }
+        
     }
     public void verPedidoClientes(){
-        StringBuilder menuBuilder = new StringBuilder();
-        String body="";
-        for (int i=0; i<contadorCliente; i++){
-            body = body+pedidosCliente[i]+"\n";
-            //System.out.println(pedidosCliente[i]);
+        if (contadorCliente>0){
+            StringBuilder menuBuilder = new StringBuilder();
+            String body="";
+            for (int i=0; i<contadorCliente; i++){
+                body = body+pedidosCliente[i]+"\n";
+            }
+            menuBuilder.append(body);
+            System.out.println(body);
+            JOptionPane.showMessageDialog(null, menuBuilder.toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay ningun pedido solicitado");
         }
-        menuBuilder.append(body);
-        System.out.println(body);
-        JOptionPane.showMessageDialog(null, menuBuilder.toString());
+        
     }
 }

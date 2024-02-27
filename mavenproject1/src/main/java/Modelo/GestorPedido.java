@@ -1,5 +1,6 @@
 package Modelo;
 import Modelo.Pedido;
+import java.io.File;
 public class GestorPedido {
     private Pedido[] pedidos;
     private int contador;
@@ -9,15 +10,12 @@ public class GestorPedido {
     }
     //Agrega un plato/bebida al pedido del cliente
     public void agregarPedido(String id){
-        System.out.println("estoy en gestor pedido");
         Pedido pedido = new Pedido(id);
         if (pedido.getNombrePedido()!=null){
             if (contador<pedidos.length){
             for(int i=0; i<contador; i++){
                 if(pedidos[i].getNombrePedido()==(pedido.getNombrePedido())){
                     int cantidadPedido= pedidos[i].getCantidad()+1;
-                    //int cantidadPedido= pedido.getCantidad()+1;
-                    //pedido.setCantidad(cantidadPedido);
                     pedidos[i].setCantidad(cantidadPedido);
                     return;
                 }
@@ -68,7 +66,6 @@ public class GestorPedido {
         // Construir el menú con un formato mejorado
         menuBuilder.append(String.format("%-70s $ %-10s", "Total:", total));
         String menu = menuBuilder.toString();
-        
         return menu;
     }
     //Ver la carta de todos los productos
@@ -89,7 +86,37 @@ public class GestorPedido {
         String menu = menuBuilder.toString();
         return menu;
     }
-    
-    
-    
+    public int getContador(){
+        return contador;
+    }
+    public void eliminarArchivosIniciales(){
+        // Definir la ruta de la carpeta "Boleta"
+        String rutaCarpeta = "src/Boleta";
+
+        // Crear un objeto File que represente la carpeta "Boleta"
+        File carpeta = new File(rutaCarpeta);
+
+        // Verificar si la ruta corresponde a una carpeta
+        if (carpeta.isDirectory()) {
+            // Obtener la lista de archivos en la carpeta
+            File[] archivos = carpeta.listFiles();
+
+            // Iterar sobre la lista de archivos
+            if (archivos != null) {
+                for (File archivo : archivos) {
+                    // Verificar si el archivo es un archivo de texto (.txt)
+                    if (archivo.isFile() && archivo.getName().toLowerCase().endsWith(".txt")) {
+                        // Eliminar el archivo
+                        if (archivo.delete()) {
+                            System.out.println("Se eliminó el archivo: " + archivo.getName());
+                        } else {
+                            System.out.println("No se pudo eliminar el archivo: " + archivo.getName());
+                        }
+                    }
+                }
+            }
+        } else {
+            System.out.println("La ruta especificada no corresponde a una carpeta.");
+        }
+    }
 }

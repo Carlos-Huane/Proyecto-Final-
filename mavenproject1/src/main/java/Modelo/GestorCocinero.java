@@ -7,13 +7,13 @@ public class GestorCocinero {
      public GestorCocinero(int cantidad) {
         cocineros = new Cocinero[cantidad];
         contador = 0;
-        /*
-        for (int i=0; i<mozos.length; i++){
-            if(mozos[i]!=null) {
+        
+        for (int i=0; i<cocineros.length; i++){
+            if(cocineros[i]!=null) {
                 contador++;
             }
         }
-        */
+        
     }
     public void agregarCocinero(Cocinero cocinero){
         if(contador<cocineros.length) {

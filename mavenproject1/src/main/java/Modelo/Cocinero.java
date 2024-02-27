@@ -1,6 +1,6 @@
 package Modelo;
-
 public class Cocinero {
+  
     private String nombre, apellido, direccion, fechaIngreso, fechaSalida, tipoEmpleo;
     private int tipoTrabajador; // tipoTrabajador = 1--> tipoEmpleo = mozo, tipoTrabajador=2 --> tipoEmpleo = cocinero
     private int edad; 
@@ -10,7 +10,7 @@ public class Cocinero {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
-        this.fechaIngreso = this.nombre=="Toji" | this.nombre=="Goku"?"20/04/2019":"Recien entro";
+        this.fechaIngreso = this.nombre=="Toji" | this.nombre=="Goku"?"20/04/2019":" ";
         //this.fechaSalida = fechaSalida;
         this.tipoEmpleo = tipoTrabajador==1?"Mozo": tipoTrabajador==2?"Cocinero":"Administrador";
         this.edad = edad;

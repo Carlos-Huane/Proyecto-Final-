@@ -24,17 +24,13 @@ public class Menu_Mozo {
             }
             switch(opcion_m){
                 case 1->{
-                    System.out.println("1. Ver la Carta");
                     listaPedidos.verCarta();
                 }
                 case 2->{
-                    //System.out.println("2. Ingresar la mesa");
                     menu_mozo_mesa.mostrar_menu_mozo_mesa(listaPedidos);
                 }
                 case 3 ->{
-                    listaPedidos.imprimirCuenta();
-                    //listaPedidos.mostrarPedidoClientes(); esto debe estar en Cocineros
-                    JOptionPane.showMessageDialog(null, " Imprimiendo cuenta");
+                    listaPedidos.imprimirCuenta(); 
                 }
                 case 4 -> {
                     break;

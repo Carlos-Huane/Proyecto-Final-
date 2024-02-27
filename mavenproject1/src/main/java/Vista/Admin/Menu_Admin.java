@@ -73,7 +73,6 @@ public class Menu_Admin {
             }
             case 3->{
                 listaEmpleados.mostrarEmpleados();
-                System.out.println("-----------------------");
             }
             case 4 -> {
                 break;
