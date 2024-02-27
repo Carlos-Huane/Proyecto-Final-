@@ -7,6 +7,7 @@ public class GestorPedido {
         pedidos = new Pedido[10];
         contador = 0;
     }
+    //Agrega un plato/bebida al pedido del cliente
     public void agregarPedido(String id){
         System.out.println("estoy en gestor pedido");
         Pedido pedido = new Pedido(id);
@@ -30,6 +31,27 @@ public class GestorPedido {
         }
         
     }
+    //Elimina un plato/bebida del pedido del cliente
+    public void eliminarPedidos(String id){
+        for(int i=0; i<contador; i++) {
+            if (pedidos[i].getId().equals(id)){
+                System.out.println("Entro aen eliminar pedidos");
+                pedidos[i]=pedidos[contador-1];
+                pedidos[contador-1] = null;
+                contador--;
+            } else {
+                //Esto ejecuta cuando no se encuentra el id dentro del sistema
+            }
+        }
+    }
+    //Elimina todos los pedidos del cliente
+    public void eliminarPedidoCliente(){
+        for(int i=0; i<contador; i++){
+            pedidos[i]=null;
+        }
+        contador=0;
+    }
+    //Ver los pedidos de un cliente
     public String verPedidos(){
         double total=0;
         StringBuilder menuBuilder = new StringBuilder();
@@ -49,6 +71,7 @@ public class GestorPedido {
         
         return menu;
     }
+    //Ver la carta de todos los productos
     public String verCarta(){
         StringBuilder menuBuilder = new StringBuilder();
         menuBuilder.append(String.format("%-20s %-20s %-20s \n", "Id","Pedido","Precio"))
@@ -67,17 +90,6 @@ public class GestorPedido {
         return menu;
     }
     
-    public void eliminarPedidos(String id){
-        for(int i=0; i<contador; i++) {
-            if (pedidos[i].getId().equals(id)){
-                System.out.println("Entro aen eliminar pedidos");
-                pedidos[i]=pedidos[contador-1];
-                pedidos[contador-1] = null;
-                contador--;
-            } else {
-                //Esto ejecuta cuando no se encuentra el id dentro del sistema
-            }
-        }
-    }
+    
     
 }

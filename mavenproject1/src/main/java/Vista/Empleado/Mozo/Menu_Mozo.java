@@ -10,7 +10,7 @@ public class Menu_Mozo {
         String menu_m = """
                 1. Ver la carta
                 2. Pedido
-                3. Eliminar pedido
+                3. Imprimir cuenta
                 4. Salir
         """;
         do {
@@ -32,9 +32,9 @@ public class Menu_Mozo {
                     menu_mozo_mesa.mostrar_menu_mozo_mesa(listaPedidos);
                 }
                 case 3 ->{
-                    String id = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
-                    listaPedidos.eliminarPedido(id);
-                    JOptionPane.showMessageDialog(null, " Pedido eliminado del sistema");
+                    listaPedidos.imprimirCuenta();
+                    //listaPedidos.mostrarPedidoClientes(); esto debe estar en Cocineros
+                    JOptionPane.showMessageDialog(null, " Imprimiendo cuenta");
                 }
                 case 4 -> {
                     break;

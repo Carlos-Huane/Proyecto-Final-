@@ -5,15 +5,17 @@ public class Menu_Mozo_Mesa {
     public void mostrar_menu_mozo_mesa(ListaPedidos listaPedidos){
         int opcion_m_mesa=0;                 //opcion menu mesa
         String menu_m_mesa = """
-                1. Regristar el pedido
-                2. Imprimir cuenta
-                3. Regresar
+                1. Registar pedidos
+                2. Mostrar cuenta
+                3. Eliminar un pedido
+                4. Descartar pedido del cliente
+                5. Regresar
         """;
         do {
             String input_m_mesa = JOptionPane.showInputDialog(menu_m_mesa);
 
             if (input_m_mesa == null) {
-                opcion_m_mesa = 3;     // Si se presiona "Cancelar", establece la opción a 4
+                opcion_m_mesa = 5;     // Si se presiona "Cancelar", establece la opción a 4
             } else {
                 opcion_m_mesa = Integer.parseInt(input_m_mesa);
             }
@@ -47,9 +49,17 @@ public class Menu_Mozo_Mesa {
                         while (opcion_pedido!=2);
                 }
                 case 2->{
-                    listaPedidos.verPedidos();
+                    listaPedidos.verPedidoCliente();
                 }
                 case 3-> {
+                    String id = JOptionPane.showInputDialog(null, "Ingrese el código de la comida/bebida:");
+                    listaPedidos.eliminarPedido(id);
+                    JOptionPane.showMessageDialog(null, " Pedido eliminado del sistema");
+                }
+                case 4-> {
+                    listaPedidos.eliminarPedidoCliente();
+                }
+                case 5-> {
                     break;
                 }
                 default ->{
@@ -57,7 +67,7 @@ public class Menu_Mozo_Mesa {
                 }
             }
             
-        } while(opcion_m_mesa !=3);   
+        } while(opcion_m_mesa !=5);   
     }
      
 }

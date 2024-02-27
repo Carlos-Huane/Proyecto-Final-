@@ -29,7 +29,7 @@ public class Empleado {
                     menu_mozo.mostrar_menu_mozo(listaPedidos);
                 }
                 case 2->{
-                    menu_cocinero.mostrar_menu_cocinero();
+                    menu_cocinero.mostrar_menu_cocinero(listaPedidos);
                 }
             }
         } while(opcion_t!=3);

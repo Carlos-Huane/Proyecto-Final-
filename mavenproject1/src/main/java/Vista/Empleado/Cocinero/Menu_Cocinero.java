@@ -1,12 +1,13 @@
 package Vista.Empleado.Cocinero;
+import Controlador.ListaPedidos;
 import javax.swing.JOptionPane;
 
 public class Menu_Cocinero {
-    public void mostrar_menu_cocinero () {
+    public void mostrar_menu_cocinero (ListaPedidos listaPedidos) {
         int opcion_c = 1;
         String menu_c = """
                             Mozo
-                            1.Ver pedidos
+                            1.Ver todos los pedidos
                             2.Salir
                             """;
         do {
@@ -20,7 +21,8 @@ public class Menu_Cocinero {
             }
             switch (opcion_c) {
                 case 1->{
-                    JOptionPane.showMessageDialog(null, "Mostrar Pedidos");
+                    listaPedidos.verPedidoClientes();
+                    //JOptionPane.showMessageDialog(null, "Mostrar Pedidos");
                 }
                 case 2->{
                     break;
