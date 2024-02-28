@@ -57,7 +57,7 @@ public class Menu_Admin {
                     //admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
                     listaEmpleados.agregarEmpleado(tipo_empleo, nombre, apellido, direccion, edad, dni);
                     // Mostrar los datos ingresados
-                    if(tipo_empleo.toUpperCase()=="MOZO" | tipo_empleo.toUpperCase() == "COCINERO"){
+                    if(tipo_empleo.toUpperCase().equals("MOZO") | tipo_empleo.toUpperCase().equals("COCINERO")){
                         String mensaje = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
                                      "Nombre: " + nombre + "\n" +
                                      "Apellido: " + apellido + "\n" +

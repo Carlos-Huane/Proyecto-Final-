@@ -3,16 +3,18 @@ package Vista;
 import javax.swing.JOptionPane;
 import Vista.Admin.Menu_Admin;
 import Vista.Empleado.Empleado;
-
+import Modelo.GestorPedido;
 import Controlador.ListaPedidos;
 
 public class Vista_General {
     public static void main (String[] args){
         
-        Menu_Admin menu_admin = new Menu_Admin(); //vista admin
-        Empleado menu_empleado= new Vista.Empleado.Empleado(); //vista empleado
+        Menu_Admin menu_admin = new Menu_Admin();               //Creación de la vista admin
+        Empleado menu_empleado= new Vista.Empleado.Empleado();  //Creacion de la vista menu_empleado
         
-        ListaPedidos listaPedidos = new ListaPedidos();         //controlador listaPedidos
+        //Inicialización de los gestores y controladores 
+        GestorPedido gestorPedido = new GestorPedido(10);          //Creacion del gestor pedido
+        ListaPedidos listaPedidos = new ListaPedidos(gestorPedido);         //controlador listaPedidos
         
         int opcion=0;
         String menu = """

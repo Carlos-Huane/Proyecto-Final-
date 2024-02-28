@@ -7,10 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class ListaPedidos {
-    private GestorPedido gestorP = new GestorPedido(10);
+    //private GestorPedido gestorP = new GestorPedido(10);
+    private GestorPedido gestorP;
     private String[] pedidosCliente = new String[10];
     private int contadorCliente;
-    public ListaPedidos(){
+    public ListaPedidos(GestorPedido gestorPedido){
+        gestorP = gestorPedido;
         gestorP.eliminarArchivosIniciales(); //es un reiniciador de archivos.txt y funciona cada vez que inicia el proyecto
     }
     public void agregarPedido(String id) {
