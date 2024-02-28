@@ -7,7 +7,7 @@ public class Menu_Mozo_Mesa {
         String menu_m_mesa = """
                 1. Registar pedidos
                 2. Mostrar cuenta
-                3. Eliminar un pedido
+                3. Eliminar un plato/bebida
                 4. Descartar pedido del cliente
                 5. Regresar
         """;
@@ -17,7 +17,8 @@ public class Menu_Mozo_Mesa {
             if (input_m_mesa == null) {
                 opcion_m_mesa = 5;     // Si se presiona "Cancelar", establece la opción a 4
             } else {
-                opcion_m_mesa = Integer.parseInt(input_m_mesa);
+                try{ opcion_m_mesa = Integer.parseInt(input_m_mesa);} 
+                    catch(Exception e) { System.out.println(e);}
             }
             
             switch (opcion_m_mesa) {
@@ -53,7 +54,6 @@ public class Menu_Mozo_Mesa {
                 case 3-> {
                     String id = JOptionPane.showInputDialog(null, "Ingrese el código de la comida/bebida:");
                     listaPedidos.eliminarPedido(id);
-                    JOptionPane.showMessageDialog(null, " Pedido eliminado del sistema");
                 }
                 case 4-> {
                     listaPedidos.eliminarPedidoCliente();
@@ -62,7 +62,7 @@ public class Menu_Mozo_Mesa {
                     break;
                 }
                 default ->{
-                    JOptionPane.showMessageDialog(null, "Coloque un número entre 1-3");
+                    JOptionPane.showMessageDialog(null, "Coloque un número entre 1-5");
                 }
             }
             

@@ -10,7 +10,7 @@ public class Empleado {
         
         Menu_Mozo menu_mozo = new Menu_Mozo();
         Menu_Cocinero menu_cocinero = new Menu_Cocinero();
-        int opcion_t;
+        int opcion_t=0;
         String menu_t = """
                 1. Mozo
                 2. Cocinero
@@ -18,11 +18,12 @@ public class Empleado {
         """;
         do {
             String input_t = JOptionPane.showInputDialog(menu_t);
-
+            // Si se presiona "Cancelar", establece la opción a 5
             if (input_t == null) {
-                opcion_t = 3;     // Si se presiona "Cancelar", establece la opción a 5
+                opcion_t = 3;     
             } else {
-                opcion_t = Integer.parseInt(input_t);
+                try{ opcion_t = Integer.parseInt(input_t); } 
+                    catch(Exception e){ System.out.println(e); }
             }
             switch(opcion_t){
                 case 1->{
@@ -30,6 +31,12 @@ public class Empleado {
                 }
                 case 2->{
                     menu_cocinero.mostrar_menu_cocinero(listaPedidos);
+                }
+                case 3->{
+                    break;
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Coloque un número entre 1-3");
                 }
             }
         } while(opcion_t!=3);

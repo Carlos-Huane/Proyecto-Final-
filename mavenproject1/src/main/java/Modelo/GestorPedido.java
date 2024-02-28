@@ -1,6 +1,7 @@
 package Modelo;
 import Modelo.Pedido;
 import java.io.File;
+import javax.swing.JOptionPane;
 public class GestorPedido {
     private Pedido[] pedidos;
     private int contador;
@@ -31,15 +32,20 @@ public class GestorPedido {
     }
     //Elimina un plato/bebida del pedido del cliente
     public void eliminarPedidos(String id){
+        boolean platoEncontrado = false;
         for(int i=0; i<contador; i++) {
             if (pedidos[i].getId().equals(id)){
-                System.out.println("Entro aen eliminar pedidos");
                 pedidos[i]=pedidos[contador-1];
                 pedidos[contador-1] = null;
                 contador--;
-            } else {
-                //Esto ejecuta cuando no se encuentra el id dentro del sistema
-            }
+                platoEncontrado=true;
+            }    
+        }
+        if(platoEncontrado==true){
+            JOptionPane.showMessageDialog(null, "código: "+id+" eliminado");
+        }else {
+            //Esto ejecuta cuando no se encuentra el id dentro del sistema
+            JOptionPane.showMessageDialog(null, " No se ha registrado ningun plato con el código: "+id);
         }
     }
     //Elimina todos los pedidos del cliente

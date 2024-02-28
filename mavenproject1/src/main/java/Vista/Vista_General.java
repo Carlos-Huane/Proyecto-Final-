@@ -1,15 +1,20 @@
 package Vista;
+
 import javax.swing.JOptionPane;
 import Vista.Admin.Menu_Admin;
 import Vista.Empleado.Empleado;
 
 import Controlador.ListaPedidos;
+
 public class Vista_General {
     public static void main (String[] args){
-        Menu_Admin menu_admin = new Menu_Admin();
-        Empleado menu_empleado= new Vista.Empleado.Empleado();
-        ListaPedidos listaPedidos = new ListaPedidos();
-        int opcion;
+        
+        Menu_Admin menu_admin = new Menu_Admin(); //vista admin
+        Empleado menu_empleado= new Vista.Empleado.Empleado(); //vista empleado
+        
+        ListaPedidos listaPedidos = new ListaPedidos();         //controlador listaPedidos
+        
+        int opcion=0;
         String menu = """
                 ############################
                               Bienvenido
@@ -25,7 +30,8 @@ public class Vista_General {
         if (input == null) {
             opcion = 3;     // Si se presiona "Cancelar", establece la opción a 5
         } else {
-            opcion = Integer.parseInt(input); //utilizar un trycatch
+            try{ opcion = Integer.parseInt(input); } 
+                catch(Exception e) { System.out.println(e);}
         }
         switch (opcion) {
             case 1 -> {

@@ -11,9 +11,9 @@ public class ListaPedidos {
     private String[] pedidosCliente = new String[10];
     private int contadorCliente;
     public ListaPedidos(){
-        gestorP.eliminarArchivosIniciales();
+        gestorP.eliminarArchivosIniciales(); //es un reiniciador de archivos.txt y funciona cada vez que inicia el proyecto
     }
-    public void agregarPedido(String id){
+    public void agregarPedido(String id) {
         gestorP.agregarPedido(id);
     }
     public void verCarta(){ //está para modificar
@@ -36,12 +36,29 @@ public class ListaPedidos {
     }
     //Elimina una bebida o plato de la lista de pedidos del cliente x
     public void eliminarPedido(String id){
-        gestorP.eliminarPedidos(id);
+        //Strings para determinar si el id pertence al rango de códigos
+        String[] arreglo = {"100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "110"};
+        String elementoBuscado = id;
+        boolean pertenece = false;
+        for (int i=0; i<arreglo.length; i++){
+            if(elementoBuscado.equals(arreglo[i])){
+                pertenece = true;
+                break;
+            }
+        }
+        if (pertenece){
+             gestorP.eliminarPedidos(id);
+        } else {
+            JOptionPane.showMessageDialog(null, " El código no permanece dentro 100-110");
+        }
+       
     }
     //Elimina todos los pedidos del cliente x
     public void eliminarPedidoCliente(){
         gestorP.eliminarPedidoCliente(); //falta añadirle el contador de cliente +1
-        contadorCliente=contadorCliente+1; //opcional luego miras k pasa cuando eliminas
+        JOptionPane.showMessageDialog(null, "Todos los pedidos del cliente fueron eliminados");
+        //contadorCliente=contadorCliente+1; //opcional luego miras k pasa cuando eliminas
+        
     }
     public void imprimirCuenta(){
         if(gestorP.getContador() > 0) {

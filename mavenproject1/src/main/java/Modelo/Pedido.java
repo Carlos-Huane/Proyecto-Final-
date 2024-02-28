@@ -1,5 +1,7 @@
 package Modelo;
 
+import javax.swing.JOptionPane;
+
 public class Pedido {
     private String id, nombrePedido;
     private double precio;
@@ -72,7 +74,7 @@ public class Pedido {
                 precio=12;
             }
             default->{
-                
+                JOptionPane.showMessageDialog(null, "Coloque un código entre 100 y 110");
             }
         }
     }

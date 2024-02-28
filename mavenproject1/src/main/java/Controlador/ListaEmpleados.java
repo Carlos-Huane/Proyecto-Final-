@@ -20,14 +20,15 @@ public class ListaEmpleados {
         gestorC.agregarCocinero(new Cocinero("Goku", "Rex", "Av. DB", 35, "20123", 2));
     }
 
-    public void agregarEmpleado(String tipo_empleo, String nombre, String apellido, String direccion, int edad, String dni){
-    // Obtener la fecha actual
-    Date fechaActual = new Date();
-    // Definir el formato de fecha deseado
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-    // Formatear la fecha actual en el formato deseado
-    String fechaFormateada = formato.format(fechaActual);
-    
+    public void agregarEmpleado(String tipo_empleo, String nombre, String apellido, String direccion, int edad, String dni)throws Exception{
+        try {
+        // Obtener la fecha actual
+        Date fechaActual = new Date();
+        // Definir el formato de fecha deseado
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        // Formatear la fecha actual en el formato deseado
+        String fechaFormateada = formato.format(fechaActual);
+        
         switch(tipo_empleo){
                     case "MOZO"->{
                         Mozo mozo=new Mozo(nombre,apellido,direccion,edad,dni,1); 
@@ -39,8 +40,13 @@ public class ListaEmpleados {
                         cocinero.setFechaIngreso(fechaFormateada);
                         gestorC.agregarCocinero(cocinero); 
                     }
-                    default -> {System.out.println("No existe ese trabajador");}
+                    default -> {JOptionPane.showMessageDialog(null, "Solo se admiten 2 tipos de trabajadores (MOZO/COCINERO)");}
+                    //default -> {throw new Exception("No existe ese tipo de trabajador");} //Se muestra el error en caso de que el tipo de empleo no coincida con cocinero ni mozo
                 }
+       
+        } catch (Exception ex){
+            throw new Exception("No se ingresaron campos correctos"); //en caso de que arroje un error al crear un objeto
+        }        
     }
     public void eliminarTrabajador(String dni){
         gestorM.eliminarMozo(dni);

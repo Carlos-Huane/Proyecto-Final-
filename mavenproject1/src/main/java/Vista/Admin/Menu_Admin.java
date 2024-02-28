@@ -7,7 +7,7 @@ public class Menu_Admin {
        
         ListaEmpleados listaEmpleados = new ListaEmpleados();
         
-        int opcion_admin;
+        int opcion_admin=0;
         String menu_admin = """
                 ############################
                         VENTANA ADMINISTRADOR
@@ -23,48 +23,58 @@ public class Menu_Admin {
         if (input_admin == null) {
                 opcion_admin = 4;     // Si se presiona "Cancelar", establece la opción a 5
         } else {
-                opcion_admin = Integer.parseInt(input_admin);
+            try{ opcion_admin = Integer.parseInt(input_admin); } 
+                catch(Exception e){ System.out.println(e); }
         }
          
         switch (opcion_admin) {
-            case 1->{        
-                // Solicitar y capturar nombre
-                String nombre = JOptionPane.showInputDialog(null, "Ingrese su nombre:");
+            case 1->{
+                try{
+                    // Solicitar y capturar nombre
+                    String nombre = JOptionPane.showInputDialog(null, "Ingrese su nombre:");
 
-                // Solicitar y capturar apellido
-                String apellido = JOptionPane.showInputDialog(null, "Ingrese su apellido:");
+                    // Solicitar y capturar apellido
+                    String apellido = JOptionPane.showInputDialog(null, "Ingrese su apellido:");
 
-                // Solicitar y capturar edad
-                String edadStr = JOptionPane.showInputDialog(null, "Ingrese su edad:");
-                int edad = Integer.parseInt(edadStr); // Convertir la edad a un valor entero
+                    // Solicitar y capturar edad
+                    String edadStr = JOptionPane.showInputDialog(null, "Ingrese su edad:");
+                    int edad = Integer.parseInt(edadStr); // Convertir la edad a un valor entero
 
-                // Solicitar y capturar DNI
-                String dni = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
+                    // Solicitar y capturar DNI
+                    String dni = JOptionPane.showInputDialog(null, "Ingrese su DNI:");
 
-                // Solicitar y capturar dirección
-                String direccion = JOptionPane.showInputDialog(null, "Ingrese su dirección:");
+                    // Solicitar y capturar dirección
+                    String direccion = JOptionPane.showInputDialog(null, "Ingrese su dirección:");
 
-                // Solicitar y capturar tipo de empleo
-                String tipo_empleo = JOptionPane.showInputDialog(null, "Ingrese el tipo de empleo");
-                tipo_empleo=tipo_empleo.toUpperCase();
+                    // Solicitar y capturar tipo de empleo
+                    String tipo_empleo = JOptionPane.showInputDialog(null, "Ingrese el tipo de empleo");
+                    tipo_empleo=tipo_empleo.toUpperCase();
+
+                    // Solicitar y capturar fecha de ingreso
+                    String fechaIngreso = "6/2/2024";
+
+                    // aquí estamos llamando al método establecido en la clase Administrador. Para ello, se instanció previamente la clase.
+                    //admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
+                    listaEmpleados.agregarEmpleado(tipo_empleo, nombre, apellido, direccion, edad, dni);
+                    // Mostrar los datos ingresados
+                    if(tipo_empleo.toUpperCase()=="MOZO" | tipo_empleo.toUpperCase() == "COCINERO"){
+                        String mensaje = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
+                                     "Nombre: " + nombre + "\n" +
+                                     "Apellido: " + apellido + "\n" +
+                                     "Edad: " + edad + "\n" +
+                                     "DNI: " + dni + "\n" +
+                                     "Dirección: " + direccion + "\n" +
+                                     "Fecha de ingreso: " + fechaIngreso + "\n" +
+                                     "Tipo de empleo: " + tipo_empleo;
+
+                        JOptionPane.showMessageDialog(null, mensaje);
+                    }
+                    
+                }catch(Exception e){ 
+                    System.out.println(e.getMessage());
+                    JOptionPane.showMessageDialog(null, "Campos no validados, error \n"+e.getMessage());
+                }
                 
-                // Solicitar y capturar fecha de ingreso
-                String fechaIngreso = "6/2/2024";
-
-                // aquí estamos llamando al método establecido en la clase Administrador. Para ello, se instanció previamente la clase.
-                //admin.registrarNuevoTrabajador(tipo_empleo, nombre, apellido, direccion, edad, dni);
-                listaEmpleados.agregarEmpleado(tipo_empleo, nombre, apellido, direccion, edad, dni);
-                // Mostrar los datos ingresados
-                String mensaje = "CUENTA REGISTRADA CON ÉXITO"+"\n"+
-                                 "Nombre: " + nombre + "\n" +
-                                 "Apellido: " + apellido + "\n" +
-                                 "Edad: " + edad + "\n" +
-                                 "DNI: " + dni + "\n" +
-                                 "Dirección: " + direccion + "\n" +
-                                 "Fecha de ingreso: " + fechaIngreso + "\n" +
-                                 "Tipo de empleo: " + tipo_empleo;
-
-                JOptionPane.showMessageDialog(null, mensaje);
             }
             case 2->{
                 String dni = JOptionPane.showInputDialog(null, "Ingrese su DNI:");

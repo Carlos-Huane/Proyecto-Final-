@@ -6,7 +6,7 @@ public class Menu_Mozo {
     public void mostrar_menu_mozo(ListaPedidos listaPedidos) {
         
         Menu_Mozo_Mesa menu_mozo_mesa = new Menu_Mozo_Mesa();
-        int opcion_m;
+        int opcion_m=0;
         String menu_m = """
                 1. Ver la carta
                 2. Pedido
@@ -19,8 +19,8 @@ public class Menu_Mozo {
             if (input_m == null) {
                 opcion_m = 4;     // Si se presiona "Cancelar", establece la opción a 5
             } else {
-                opcion_m = Integer.parseInt(input_m);
-                listaPedidos.agregarPedido(opcion_m+"");
+                try{ opcion_m = Integer.parseInt(input_m); } 
+                    catch(Exception e){ System.out.println(e); }
             }
             switch(opcion_m){
                 case 1->{

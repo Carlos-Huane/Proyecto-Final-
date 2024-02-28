@@ -17,7 +17,8 @@ public class Menu_Cocinero {
             if (input_c == null) {
                 opcion_c = 2;     // Si se presiona "Cancelar", establece la opción a 5
             } else {
-                opcion_c = Integer.parseInt(input_c);
+                try{ opcion_c = Integer.parseInt(input_c); } 
+                    catch(Exception e){ System.out.println(e); }
             }
             switch (opcion_c) {
                 case 1->{

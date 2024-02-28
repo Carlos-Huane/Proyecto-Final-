@@ -1,10 +1,9 @@
 package Modelo;
 public class Cocinero {
   
-    private String nombre, apellido, direccion, fechaIngreso, fechaSalida, tipoEmpleo;
+    private String nombre, apellido, direccion, fechaIngreso, fechaSalida, tipoEmpleo, dni;
     private int tipoTrabajador; // tipoTrabajador = 1--> tipoEmpleo = mozo, tipoTrabajador=2 --> tipoEmpleo = cocinero
     private int edad; 
-    private String dni;
     
     public Cocinero(String nombre, String apellido, String direccion, int edad, String dni, int tipoTrabajador) {
         this.nombre = nombre;
