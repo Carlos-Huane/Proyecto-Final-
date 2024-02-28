@@ -29,8 +29,12 @@ public class Menu_Mozo_Mesa {
                         if (input_pedido == null) {
                         opcion_pedido = 2;     // Si se presiona "Cancelar", establece la opción a 4
                         } else {
-                            opcion_pedido = Integer.parseInt(input_m_mesa); //Guardo el código del plato/bebida
-                            listaPedidos.agregarPedido(input_pedido);
+                            try{ 
+                                opcion_pedido = Integer.parseInt(input_m_mesa); //Guardo el código del plato/bebida
+                                listaPedidos.agregarPedido(input_pedido);
+                            } catch(Exception e) { System.out.println(e);} 
+                            opcion_pedido = Integer.parseInt(input_m_mesa); 
+
                         }
                         String menu_continuar_1 = """
                                                 ¿Desea ingresar otro pedido?
@@ -42,7 +46,8 @@ public class Menu_Mozo_Mesa {
                         if (menu_continuar == null){
                             menu_continuar_opcion = 2;
                         } else {
-                            menu_continuar_opcion = Integer.parseInt(menu_continuar); //almacena el valor 1 o 2 (si desea continuar o no)
+                             try{ menu_continuar_opcion = Integer.parseInt(menu_continuar);} //almacena el valor 1 o 2 (si desea continuar o no)
+                                catch(Exception e) { System.out.println(e);}   
                         } 
                         opcion_pedido = (menu_continuar_opcion==2)? 2 : 1 ; 
                         }         
